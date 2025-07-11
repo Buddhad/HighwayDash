@@ -37,12 +37,8 @@ public class TrafficCar : MonoBehaviour
         hasBeenPassed = false; // Reset the passed flag
     }
     
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            // Handle collision with player (game over, etc.)
-            GameManager.Instance.GameOver();
-        }
-    }
+    // REMOVED: OnTriggerEnter2D method
+    // The collision detection is now handled entirely by the PlayerController
+    // This prevents the traffic car from immediately triggering game over
+    // before the player's shield can be checked
 }

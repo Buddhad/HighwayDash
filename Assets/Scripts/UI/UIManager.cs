@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     [Header("UI Elements")]
     [SerializeField] private Button restartButton;
+    [SerializeField] private Button resumeButton;
     [SerializeField] private Button pauseButton;
     [SerializeField] private GameObject pausePanel;
 
@@ -17,6 +19,9 @@ public class UIManager : MonoBehaviour
         if (restartButton != null)
             restartButton.onClick.AddListener(RestartGame);
 
+        if (resumeButton != null)
+            resumeButton.onClick.AddListener(ResumeGame); // ✅ This was missing
+
         if (pauseButton != null)
             pauseButton.onClick.AddListener(TogglePause);
 
@@ -26,7 +31,8 @@ public class UIManager : MonoBehaviour
 
     public void RestartGame()
     {
-        GameManager.Instance.RestartGame();
+        Time.timeScale = 1f; // important if game was paused
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void TogglePause()
@@ -49,6 +55,7 @@ public class UIManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        Debug.Log("ResumeGame Called"); // ← Add this to test
         isPaused = false;
         Time.timeScale = 1f;
         if (pausePanel != null)

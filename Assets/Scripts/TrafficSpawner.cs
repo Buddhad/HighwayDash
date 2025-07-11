@@ -14,7 +14,7 @@ public class TrafficSpawner : MonoBehaviour
     [SerializeField] private float minDistanceBetweenCars = 3f; // Minimum distance between cars
 
     [Header("Difficulty")]
-    [SerializeField] private float difficultyIncreaseRate = 0.05f; // Gradual increase
+    //[SerializeField] private float difficultyIncreaseRate = 0.05f; // Gradual increase
     [SerializeField] private float minSpawnInterval = 0.8f; // Minimum interval (fastest spawning)
     [SerializeField] private float difficultyRampUpTime = 30f; // Time to reach maximum difficulty
 

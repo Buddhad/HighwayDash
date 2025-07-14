@@ -129,12 +129,13 @@ public class PlayerController : MonoBehaviour
     {
         if (!isChangingLane) return;
 
-        float newX = Mathf.MoveTowards(transform.position.x, targetX, laneChangeSpeed * Time.fixedDeltaTime);
-        rb.MovePosition(new Vector2(newX, rb.position.y));
+        float step = laneChangeSpeed * Time.fixedDeltaTime;
+        Vector2 newPos = Vector2.MoveTowards(rb.position, new Vector2(targetX, rb.position.y), step);
+        rb.MovePosition(newPos);
 
         if (Mathf.Abs(rb.position.x - targetX) < 0.05f)
         {
-            rb.MovePosition(new Vector2(targetX, rb.position.y));
+            rb.position = new Vector2(targetX, rb.position.y);
             isChangingLane = false;
 
             if (showDebugInfo)
@@ -308,29 +309,29 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-/*
-    /// <summary>
-    /// Draws debug information on the screen if enabled.
-    /// </summary>
-    void OnGUI()
-    {
-        if (!showDebugInfo) return;
-
-        GUILayout.BeginArea(new Rect(10, 10, 300, 200));
-        GUILayout.Label($"Current Speed: {verticalSpeed}");
-        GUILayout.Label($"Normal Speed: {normalSpeed}");
-        GUILayout.Label($"Speed Boosted: {isSpeedBoosted}");
-        GUILayout.Label($"Shield Active: {isShieldActive}");
-        GUILayout.Label($"Score Boosted: {isScoreBoosted}");
-        GUILayout.Label($"PowerUp Timer: {powerUpTimer:F1}s");
-
-        if (powerUpTimer > 0)
+    /*
+        /// <summary>
+        /// Draws debug information on the screen if enabled.
+        /// </summary>
+        void OnGUI()
         {
-            GUILayout.Label($"Active PowerUp: {currentPowerUp}");
+            if (!showDebugInfo) return;
+
+            GUILayout.BeginArea(new Rect(10, 10, 300, 200));
+            GUILayout.Label($"Current Speed: {verticalSpeed}");
+            GUILayout.Label($"Normal Speed: {normalSpeed}");
+            GUILayout.Label($"Speed Boosted: {isSpeedBoosted}");
+            GUILayout.Label($"Shield Active: {isShieldActive}");
+            GUILayout.Label($"Score Boosted: {isScoreBoosted}");
+            GUILayout.Label($"PowerUp Timer: {powerUpTimer:F1}s");
+
+            if (powerUpTimer > 0)
+            {
+                GUILayout.Label($"Active PowerUp: {currentPowerUp}");
+            }
+            GUILayout.EndArea();
         }
-        GUILayout.EndArea();
-    }
-*/
+    */
     public bool IsScoreBoosted()
     {
         return isScoreBoosted;

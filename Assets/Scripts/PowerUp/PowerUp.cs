@@ -11,6 +11,10 @@ public class PowerUp : MonoBehaviour
     [SerializeField] private float duration = 5f;
     [SerializeField] private float moveSpeed = 5f;
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioClip pickupSound;
+    [SerializeField] private AudioSource audioSourcePrefab;
+
     void Update()
     {
         // Move down with traffic
@@ -28,6 +32,7 @@ public class PowerUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             ApplyPowerUp(other);
+            PlayPickupSound(); // Play sound when collected
             Destroy(gameObject);
         }
     }
@@ -35,7 +40,7 @@ public class PowerUp : MonoBehaviour
     void ApplyPowerUp(Collider2D player)
     {
         PlayerController playerController = player.GetComponent<PlayerController>();
-        
+
         if (playerController != null)
         {
             playerController.ActivatePowerUp(powerUpType, duration);
@@ -44,6 +49,17 @@ public class PowerUp : MonoBehaviour
         else
         {
             Debug.LogError("PlayerController component not found on player!");
+        }
+    }
+    // Play pickup sound 
+    void PlayPickupSound()
+    {
+        if (pickupSound != null && audioSourcePrefab != null)
+        {
+            AudioSource source = Instantiate(audioSourcePrefab, transform.position, Quaternion.identity);
+            source.clip = pickupSound;
+            source.Play();
+            Destroy(source.gameObject, pickupSound.length);
         }
     }
 }

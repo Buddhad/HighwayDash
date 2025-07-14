@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1445388398537323207}
   - component: {fileID: 4307012297496901037}
   - component: {fileID: 7343290891535942097}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ScoreMultiplier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,3 +136,5 @@ MonoBehaviour:
   powerUpType: 2
   duration: 5
   moveSpeed: 5
+  pickupSound: {fileID: 8300000, guid: 87a79fd4725543643955cdb249207332, type: 3}
+  audioSourcePrefab: {fileID: 4549568725594384256, guid: 753e5f368c106354f82f8aa0089c9a3c, type: 3}

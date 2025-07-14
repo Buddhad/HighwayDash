@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7625797008508905479}
   - component: {fileID: 1097016741413422371}
   - component: {fileID: -1692904216992124580}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,9 +72,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 2084392015
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ea0bfb99bb0ff664ea90be10055ce621, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -136,3 +136,5 @@ MonoBehaviour:
   powerUpType: 1
   duration: 5
   moveSpeed: 5
+  pickupSound: {fileID: 8300000, guid: 87a79fd4725543643955cdb249207332, type: 3}
+  audioSourcePrefab: {fileID: 4549568725594384256, guid: 753e5f368c106354f82f8aa0089c9a3c, type: 3}

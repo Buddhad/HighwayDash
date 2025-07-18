@@ -558,8 +558,9 @@ MonoBehaviour:
   - {fileID: 685916423067762327, guid: c66dfef4b79abdc44873d6a70c8645a8, type: 3}
   - {fileID: 7804226904047737084, guid: de3156bcb39fe654bbdd92652c4d3287, type: 3}
   - {fileID: 1545302147981453325, guid: 66b61abe91906ab47aafc39fe9389105, type: 3}
-  spawnInterval: 2
+  spawnInterval: 5
   spawnY: 6
+  spawnYOffset: 3
   checkDistance: 3
   trafficLayer:
     serializedVersion: 2
@@ -568,7 +569,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   overlapBoxWidth: 1.5
-  showDebugInfo: 1
+  showDebugInfo: 0
 --- !u!4 &341094246
 Transform:
   m_ObjectHideFlags: 0
@@ -682,11 +683,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 5
+  road1: {fileID: 0}
+  road2: {fileID: 0}
   roadHeight: 15
   resetPositionY: -18
   startPositionY: 18
   showDebugInfo: 1
-  fitToScreen: 1
 --- !u!1 &419960741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,8 +1097,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  offset: {x: 0, y: 3, z: -10}
+  offset: {x: 0, y: 0, z: -10}
   smoothSpeed: 0.125
+  roadScrollSpeed: 5
+  tiltAmount: 1
+  tiltSpeed: 5
+  shakeDuration: 0.2
+  shakeMagnitude: 0.1
+  zoomSpeed: 5
 --- !u!1 &609616132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2130,9 +2138,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 2084392015
+  m_SortingLayer: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 4d7277d4e3099d14687f89076388261b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2181,6 +2189,7 @@ MonoBehaviour:
   bottomBoundaryOffset: 0.5
   boundaryBuffer: 0.2
   showDebugInfo: 0
+  debugInvincibility: 0
 --- !u!61 &1437280931
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3072,11 +3081,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: 5
+  road1: {fileID: 0}
+  road2: {fileID: 0}
   roadHeight: 15
   resetPositionY: -18
   startPositionY: 18
   showDebugInfo: 1
-  fitToScreen: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
